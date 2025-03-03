@@ -1,10 +1,10 @@
-=== ithan devvn checkout for WooCommerce ===
+=== ithan devvn checkout customizer ===
 Contributors: laptrinhvienso0
 Donate link: 
 Tags: checkout, fields, woocommerce, custom, payment
 Requires at least: 6.0
 Tested up to: 6.7
-Stable tag: 2.0
+Stable tag: 2.1
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html

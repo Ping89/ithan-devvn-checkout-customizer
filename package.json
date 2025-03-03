@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "minify-js-wc-checkout-page": "npx uglify-js assets/src/js/billing_address_selection_for_wc_checkout_page.js -o assets/build/js/billing_address_selection_for_wc_checkout_page.min.js",
+    "minify-js-popup-page": "npx uglify-js assets/src/js/billing_address_selection_for_popup.js -o assets/build/js/billing_address_selection_for_popup.min.js",
+    "minify-js-virtual-page": "npx uglify-js assets/src/js/billing_address_selection.js -o assets/build/js/billing_address_selection.min.js",
+    "minify-js": "npm run minify-js-wc-checkout-page && npm run minify-js-popup-page && npm run minify-js-virtual-page",
+    "minify-css-wc-page": "npx cleancss assets/src/css/ithan-devvn-woocommerce-checkout.css -o assets/build/css/ithan-devvn-woocommerce-checkout.min.css",
+    "minify-css-wc-notices-page": "npx cleancss assets/src/css/notices.css -o assets/build/css/notices.min.css",
+    "minify-css": "npm run minify-css-wc-page && npm run minify-css-wc-notices-page"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "uglify-js": "^3.19.3"
+  }
+}

@@ -1,0 +1,547 @@
+/* ====================================================== */
+/* ===========  [1] Global Theme Variables & #main  ===== */
+/* ====================================================== */
+:root {
+    /* Các biến màu mặc định (Visual Studio Dark) */
+    --color-bg: #1e1e1e;
+    --color-surface: #2d3c2f;
+    --color-text: #d4d4d4;
+    --color-text2: #555;
+    --color-info: #5da5e0;
+    --color-hover-info: #92bb77;
+    --color-accent: #007acc;
+    --color-selected: #a4805e;
+    --color-error: #a31515;
+    --color-price: #e06c75;
+    --color-bg-tooltip: #fff;
+    --color-text-tooltip: #b3b6bb;
+  
+    /* Biến cho icon */
+    --icon-bg: transparent;
+    --icon-width: 16px;
+    --icon-height: 16px;
+
+    --line-height: .8rem;
+  }
+  
+  #main {
+    color: var(--color-text) !important;
+    background-color: var(--color-bg) !important;
+    min-height: 100vh;
+  }
+
+.checkout.woocommerce-checkout label {
+    color: var(--color-text2);
+  }
+  
+  /* ====================================================== */
+  /* ===========  [2] Các Theme (Ghi đè biến)  ============ */
+  /* ====================================================== */
+  
+  /* Light (VS) */
+  #main.theme-light {
+    --color-bg: #ffffff;
+    --color-surface: #f3f3f3;
+    --color-text: #333333;
+    --color-error: #a31515;
+    --color-accent: #007acc;
+  }
+  
+  /* High Contrast (VS) */
+  #main.theme-high-contrast {
+    --color-bg: #000000;
+    --color-surface: #000000;
+    --color-text: #ffffff;
+    --color-accent: #ffff00;
+    --color-error: #ff0000;
+  }
+  
+  /* Dark+ (VS) */
+  #main.theme-dark-plus {
+    --color-bg: #1e1e1e;
+    --color-surface: #252526;
+    --color-text: #d4d4d4;
+    --color-accent: #3794ff;
+  }
+  
+  /* Theme Green */
+  #main.theme-green {
+    --color-bg: #1e1e1e;        /* Giữ nền tối */
+    --color-surface: #2d3c2f;     /* Màu nền bề mặt hơi xanh lá đậm */
+    --color-text: #d0e6d6;        /* Text xanh lá nhạt */
+    --color-accent: #4caf50;      /* Xanh lá tươi */
+    --color-selected: #66bb6a;
+    --color-info: #66bb6a;
+    --color-hover-info: #81c784;
+    --color-error: #e57373;
+    --color-price: #81c784;
+  }
+  
+  /* Theme Blue */
+  #main.theme-blue {
+    --color-bg: #1e1e1e;
+    --color-surface: #2c3e50;     /* Màu nền bề mặt xanh đậm */
+    --color-text: #d0d8e8;        /* Text xanh nhạt */
+    --color-accent: #2196f3;      /* Xanh da trời */
+    --color-selected: #64b5f6;
+    --color-info: #64b5f6;
+    --color-hover-info: #90caf9;
+    --color-error: #e57373;
+    --color-price: #90caf9;
+  }
+  
+  /* ====================================================== */
+  /* ===========  [3] Các Style Bổ Sung (Chung)  =========== */
+  /* ====================================================== */
+  
+  /* Shipping list */
+  .shipping__list_item {
+    padding-right: 0.2rem !important;
+  }
+  
+  .shipping__list_label {
+    position: relative;
+  }
+  
+  .shipping__list_label .woocommerce-Price-amount {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  /* Customer Gender: hiển thị hàng ngang */
+  .customer-gender {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  /* Loại bỏ margin/padding mặc định của .form-row WooCommerce */
+  .woocommerce form .form-row {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* ====================================================== */
+  /* ===========  [4] Wrapper & Input Styles  ============= */
+  /* ====================================================== */
+  
+  /* Wrapper chung cho input & location */
+  .input-wrapper,
+  .location-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-surface);
+    border-radius: 10px;
+    margin-bottom: .5rem;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  /* Icon trong .location-wrapper hoặc .input-wrapper */
+  .location-wrapper .icon,
+  .input-wrapper .icon {
+    width: var(--icon-width);
+    height: var(--icon-height);
+    color: var(--color-text);
+  }
+  
+  /* Input thường & Select (khi chưa dùng Select2) */
+  .input-wrapper .input,
+  .location-wrapper select {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--color-text);
+    margin: 0;
+    line-height: var(--line-height);
+    vertical-align: middle;
+  }
+  
+  /* Placeholder của input */
+  .input-wrapper .input::placeholder {
+    color: var(--color-text);
+    opacity: 0.6;
+  }
+  
+  /* Focus state cho input và select */
+  .input-wrapper .input:focus,
+  .location-wrapper select:focus {
+    background-color: transparent;
+    box-shadow: none;
+    outline: none;
+    color: var(--color-text);
+  }
+  
+  /* Vị trí icon trong .input-wrapper */
+  /* .location-wrapper > span, */
+  .input-wrapper > span {
+    display: flex;
+    align-items: center;
+    background-color: var(--icon-bg);
+    padding: 10px; /* Có thể điều chỉnh */
+  }
+  
+  /* .input-container bao bọc các .input-wrapper */
+  .input-container {
+    display: flex;
+    position: relative;
+  }
+  
+  /* .location-wrapper giãn hết chiều rộng còn lại */
+  .input-container .location-wrapper {
+    flex: 1;
+    box-sizing: border-box;
+  }
+  
+  /* Dàn rộng 100% cho .select2-container (nếu có) */
+  .location-wrapper span.selection {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+  }
+  
+  /* Loại trừ span đầu tiên trong .location-wrapper */
+  .location-wrapper span:not(:first-child) {
+    background-color: transparent;
+  }
+  
+  /* ====================================================== */
+  /* ===========  [5] Style cho Label & Mô Tả  ============ */
+  /* ====================================================== */
+  .checkout-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+  
+  .checkout-label .required {
+    color: var(--color-error);
+    margin-left: 2px;
+  }
+  
+  .description {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    margin-top: 0.25rem;
+  }
+  
+  .product-page-price {
+    display: flex !important;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .product-name a,
+  .product-title {
+    color: var(--color-info) !important;
+  }
+  
+  .product-name a:hover {
+    color: var(--color-hover-info) !important;
+  }
+  
+  #billing_country_field {
+    display: flex;
+    align-items: center;
+  }
+  
+  #billing_country_field label {
+    margin-right: 10px;
+  }
+  
+  /* ====================================================== */
+  /* ===========  [6] Tooltip Báo Lỗi (nếu có)  =========== */
+  /* ====================================================== */
+  .error {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    margin-bottom: 8px;
+    padding: 0.5em 1em 0.4em;
+    background-color: var(--color-error);
+    border: 1px solid #f00;
+    border-radius: 5px;
+    color: #fff;
+  }
+  
+  .error::before,
+  .error::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 10px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+  }
+  
+  .error::before {
+    border-top: 8px solid #f00;
+  }
+  
+  .error::after {
+    bottom: -7px;
+    right: 11px;
+    border-top: 7px solid var(--color-error);
+  }
+  
+  /* ====================================================== */
+  /* ==========  [7] Override location-wrapper + Select2  == */
+  /* ====================================================== */
+  
+  /* Ẩn <select> gốc, vì Select2 render khung riêng */
+  .location-wrapper select {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    background: transparent;
+  }
+  
+  /* Đảm bảo .select2-container giãn hết chiều rộng */
+  .location-wrapper .selection > span {
+    flex: 1;
+    min-width: 0;
+    border: none !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    height: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 !important;
+  }
+  
+  /* Chỉnh màu chữ và spacing của text hiển thị */
+  .location-wrapper .selection > span > span {
+    color: var(--color-text) !important;
+    line-height: 1.2 !important;
+    white-space: nowrap;
+    padding: 0.4rem 0.5rem !important;
+  }
+  
+  /* Chỉnh màu mũi tên của Select2 */
+  .location-wrapper b {
+    border-color: var(--color-text) transparent transparent transparent !important;
+  }
+  
+  /* Ẩn nút xóa nếu không cần */
+  .location-wrapper .selection > span > span > span {
+    display: none !important;
+  }
+  
+  /* Chỉnh màu icon SVG */
+  .woocommerce-billing-fields .icon {
+    fill: var(--icon-bg);
+  }
+  
+  span.amount {
+    color: var(--color-price) !important;
+  }
+  .input-text, .input-text:focus {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+  }
+  
+  /* ====================================================== */
+  /* ==========  [8] Theme cho Select2 (Dùng biến)  ========= */
+  /* ====================================================== */
+
+  /* Single select */
+  .select2-container .select2-selection--single {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-surface);
+    width: 100%;
+  }
+  
+  .select2-container .select2-selection--single .select2-selection__rendered {
+    color: var(--color-text);
+  }
+  
+  .select2-container .select2-selection--single .select2-selection__arrow b {
+    border-color: var(--color-text) transparent transparent transparent;
+  }
+  
+  /* Hover & focus cho single */
+  .select2-container.select2-container--open .select2-selection--single .select2-selection__arrow b {
+    border-color: transparent transparent var(--color-accent) transparent;
+    /* border-width: 0 4px 5px 4px; */
+  }
+  
+  /* Multiple select */
+  .select2-container .select2-selection--multiple {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-surface);
+  }
+  
+  .select2-container .select2-selection--multiple .select2-selection__rendered {
+    /* padding: 0 5px; */
+    color: var(--color-text);
+  }
+  
+  .select2-container .select2-selection--multiple .select2-selection__choice {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+  }
+  
+  /* Dropdown */
+  .select2-container .select2-dropdown {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-surface);
+  }
+  
+  /* Kết quả option */
+  .select2-container .select2-results__option {
+    /* padding: 6px; */
+    color: var(--color-text);
+  }
+  
+  /* Option highlight */
+  .select2-container .select2-results__option--highlighted[aria-selected],
+  .select2-container .select2-results__option--highlighted[data-selected] {
+    background-color: var(--color-accent);
+    color: #fff;
+  }
+  
+  /* Placeholder */
+  .select2-container .select2-selection__placeholder {
+    color: #888;
+  }
+  
+  .select2-container .select2-search__field {
+    background-color: transparent !important;
+    color: var(--color-text) !important;
+  }
+  
+  .select2-container--default .select2-results__option[data-selected=true] {
+    background-color: var(--color-selected) !important;
+  }
+  
+  .location-wrapper {
+    position: relative;
+  }
+  
+  /* Icon được định vị tuyệt đối bên trái */
+  .location-wrapper > span:first-child {
+    position: absolute;
+    left: 0; /* khoảng cách từ lề trái của container */
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* không ảnh hưởng đến click vào select */
+  }
+  
+  span.select2.select2-container.select2-container--default {
+    padding: 6px 6px 6px 36px !important;
+    margin: 0 !important;
+  }
+
+/* ====================================================== */
+/* ==========  [9] Tooltip  ========= */
+/* ====================================================== */
+div.has__tooltips {
+  position: relative;
+}
+div.has__tooltips label {
+  position: absolute;
+  color: var(--color-text-tooltip);
+  background: var(--color-bg-tooltip);
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  visibility: hidden;
+  padding: 5px 10px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 6px #807279;
+}
+div.has__tooltips label:after {
+  content: '';
+  position: absolute;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid var(--color-bg-tooltip);
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+
+div.has__tooltips label.tooltip__jump:after {
+  top: 100%;
+  left: 50%;
+}
+
+div.has__tooltips label.location__tooltip-jump:after {
+  top: calc(50% - 8px);
+  left: -8px;
+
+  border-left: 8px solid transparent;
+  border-right: 8px solid var(--color-bg-tooltip);
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+
+div.has__tooltips label.location__tooltip-jump,
+div.has__tooltips label.tooltip__jump {
+  visibility: visible;
+  opacity: 0.8;
+  bottom: 50px;
+  margin-left: -68px;
+  z-index: 5;
+}
+
+div.has__tooltips label.tooltip__jump {
+  left: 12%;
+}
+
+div.has__tooltips label.location__tooltip-jump{
+  right: 20%;
+  top: 15%;
+}
+
+@media screen and (max-width: 470px) {
+  div.has__tooltips label.tooltip__jump {
+    left: 20%;
+  }
+  div.has__tooltips label.location__tooltip-jump{
+    right: 5%;
+    top: 5%;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  div.has__tooltips label.tooltip__jump {
+    left: 30%;
+  }
+  div.has__tooltips label.location__tooltip-jump{
+    display: none;
+  }
+}
+
+.tooltip__jump{
+  animation: jump 1.5s infinite;
+}
+
+@keyframes jump {
+  0% {
+    bottom: 30px;
+    opacity: 0.8;
+  }
+  50% {
+    bottom: 36px;
+    opacity: 0.7;
+  }
+  100% {
+    bottom: 30px;
+    opacity: 0.8;
+  }
+}

@@ -4,7 +4,7 @@ Donate link:
 Tags: checkout, fields, woocommerce, custom, payment
 Requires at least: 6.0
 Tested up to: 6.7
-Stable tag: 6.7.2
+Stable tag: 2.0
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -35,7 +35,7 @@ We also maintain a GitHub repository (link below), where you can view the comple
 
 == Development & Source Code ==
 You can view, fork, or contribute to our plugin’s source code on GitHub:
-[https://github.com/your-username/your-plugin-name](https://github.com/your-username/your-plugin-name)
+[https://github.com/Ping89/ithan-devvn-checkout-customizer]
 
 = Làm sao để cài đặt =
 
@@ -74,8 +74,6 @@ Nothing to do
 == A brief Markdown ==
 
 Markdown is what the parser uses to process much of the readme file.
-
-[markdown syntax]: https://daringfireball.net/projects/markdown/syntax
 
 Ordered list:
 
